@@ -1,6 +1,72 @@
-{
- "cells": [],
- "metadata": {},
- "nbformat": 4,
- "nbformat_minor": 5
-}
+
+recliner_seat=50 
+normal_seat=100 
+
+while True :
+
+    print ("_"*80)
+    print ("")
+    print ("                         WELCOME TO MARVEL CINEMA")
+    print ("_"*80)
+    print ("")
+    print ("Movie Name = THE AVENGER ENDGAME")
+    
+    print ("")
+    name = input("Enter Customer Name :  ")
+    print ("")
+    phone_number = input("enter phone number ")
+    print("")
+    seat = int(input ("How many seats do you want to book?  "))
+    print ("")
+    print ("The price of Normal Seat is Rs. 250/- \nThe price of Recliner Seat is Rs. 500/- ")
+    print("")
+    seat_type = input ("What type of seats do you want to have? (normal/recliner)  ")
+    print("")
+    
+    if seat_type == "recliner" or seat_type == "Recliner": 
+        if recliner_seat>seat: 
+            amount = seat*500
+            print ("")
+            print ("")
+            print("The amount of recliner seat is: ",amount)
+            print ("")
+            recliner_seat -=seat
+            print ("")
+            print ("available recliner seats now after this booking: ",recliner_seat)
+            print ("")
+            
+        if recliner_seat<seat : print ("Recliner seats not available")
+        if recliner_seat ==0: print ("Recliner seats Bookings full")
+    
+    
+    if seat_type == "normal" or seat_type == "Normal": 
+        if normal_seat>seat: 
+            amount = seat*250
+            print ("")
+            print ("")
+            print("The amount of Normal seat is : " ,amount)
+            print ("")
+            normal_seat -=seat
+            print ("")
+            print ("available normal seats now after this booking: ",normal_seat)
+            print ("")
+            
+        if normal_seat<seat: print ("Normal seat is not available")
+        if normal_seat ==0: print ("Normal seats Bookings full")
+    
+    print ("")
+    combo = input ("do you want combo of rs. 300?   ")
+    if combo == "yes" :
+        amount +=300
+        print ("")
+        print ("_"*80)
+        print ("After adding combo final payable amount is : ",amount)
+        print ("_"*80)
+        print ("")
+    else :
+        print ("")
+        print ("_"*80)
+        print ("Final payable amount is : ",amount)
+        print ("_"*80)
+        print ("")
+    print ("THANK YOU FOR VISITING")    
