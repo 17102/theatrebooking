@@ -1,6 +1,72 @@
-{
- "cells": [],
- "metadata": {},
- "nbformat": 4,
- "nbformat_minor": 5
-}
+User_ID={"Raj":"Saxena@12","Ram":"Ram@12","Siri":"Siri@12","Ayush":"Ayush@12","Rina":"Rina@12"}
+Books={"maths":10,"science":10,"hindi":10,"sanskrit":10}
+print ("_"*100)
+print ("                        WELCOME TO HOGWARTS LIBRARY")
+print ("_"*100)
+
+while True:
+    User_name = input("enter user ID:")
+    password = input("enter password:")
+    print("")
+    while True:
+        if User_name in User_ID.keys():
+            if password == User_ID[User_name]:
+                print(f"Hello {User_name},Welcome to Hogwarts Library!!")
+                print ("")
+                a = int(input('''what do you want ?
+                Press 1  you want to add Book
+                Press 2  you want to Borrow Book
+                Press 3  you want to return Book
+                Press 4  if you want go on home page:'''))
+                print ("")
+                if a == 4:
+                    print(Books)
+                    print(f"Thanks for coming {User_name}, Visit again!!")
+                    break
+                elif a == 1:
+                    print(Books)
+                    b = input("Which book you wanna add?:")
+                    b=b.lower()
+                    k = int(input("How many books you want to add?:"))
+                    if b in Books:
+                        print("Book added")
+                        Books[b] += k
+                    else:
+                        print("Book added")
+                        Books[b] = k
+                    print("Now we have", Books)
+                elif a == 2:
+                    print(Books)
+                    c = input("Which book you wanna Take ?:")
+                    c=c.lower()
+                    l = int(input("How many books you want to Take ?:"))
+                    if c in Books:
+                        if l <= Books[c]:
+                            Books[c] -= l
+                            print("take your book")
+                            print("Now we have", Books)
+                        elif Books[c]==0:
+                            print(f"no more {c} book for now")
+                        else:
+                            print(f"we have only {Books[c]} {c} books, so choose out of {Books[c]}")
+                    else:
+                        print(f"This {c} is not in our collection, Now we have only {Books} so make choice out of them")
+                elif a == 3:
+                    print(Books)
+                    d = input("Which book you wanna Return?:")
+                    d=d.lower()
+                    m = int(input("How many books you want to Return?:"))
+                    if d in Books:
+                        print("Book submitted thanks for returning")
+                        Books[d] += m
+                    else:
+                        print("Book submitted thanks for returning")
+                        Books[d] = m
+                    print("Now we have", Books)
+
+            else:
+                print("invalid password")
+                break
+        else:
+            print("You are not valid user")
+            break
